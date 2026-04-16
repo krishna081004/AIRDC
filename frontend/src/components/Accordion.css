@@ -1,0 +1,40 @@
+/* Each item is a block, line added via sibling selector */
+.accordion-item {}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid rgba(42, 47, 108, 0.25);
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.15rem 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.accordion-header:hover {
+  color: white;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  color: var(--text-muted);
+}
+
+.accordion-content {
+  overflow: hidden;
+}
+
+.accordion-content p {
+  padding: 0 0.5rem 1.25rem 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,505 @@
+/* ===== RESULT CARD ===== */
+.result-card {
+  width: 100%;
+  max-width: 580px;
+  margin-top: 2rem;
+  padding: 2.5rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ===== ERROR STATE ===== */
+.result-card.error {
+  border-color: rgba(228, 77, 46, 0.2);
+}
+
+.error-icon {
+  margin-bottom: 1.25rem;
+}
+
+.result-card.error h2 {
+  color: #ff6b6b;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== HEADER ===== */
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.result-title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* ===== PREDICTION BADGE ===== */
+.prediction-highlight {
+  margin-bottom: 1rem;
+}
+
+.prediction-class {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  border-radius: var(--radius-full);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.prediction-class.pneumonia {
+  background: linear-gradient(135deg, #e44d2e, #ff6b4a);
+  box-shadow: 0 0 30px rgba(228, 77, 46, 0.4);
+}
+.prediction-class.tuberculosis {
+  background: linear-gradient(135deg, #e6b800, #f1c40f);
+  box-shadow: 0 0 30px rgba(241, 196, 15, 0.4);
+  color: #1a1a2e;
+}
+.prediction-class.normal {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  box-shadow: 0 0 30px rgba(46, 204, 113, 0.4);
+}
+
+/* ===== CONFIDENCE TEXT ===== */
+.confidence-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+.confidence-text strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ===== PROBABILITY BARS ===== */
+.probability-section {
+  text-align: left;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.prob-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.prob-bar-row {
+  margin-bottom: 0.85rem;
+}
+.prob-bar-row:last-child {
+  margin-bottom: 0;
+}
+
+.prob-bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.prob-bar-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.prob-bar-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.prob-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.prob-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== DISEASE INFO ACCORDION ===== */
+.info-accordion-container {
+  text-align: left;
+  margin-bottom: 2rem;
+  border-top: 1px solid rgba(42, 47, 108, 0.3);
+  padding-top: 0.5rem;
+}
+
+/* ===== RESET BUTTON ===== */
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(74, 81, 140, 0.5);
+  color: rgba(164, 158, 219, 0.8);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.25s ease;
+}
+.reset-button:hover {
+  background-color: rgba(74, 81, 140, 0.3);
+  color: white;
+  border-color: rgba(74, 81, 140, 0.7);
+}
+
+/* ===== GATEKEEPER REJECTION STATE ===== */
+.gatekeeper-rejection {
+  border-color: rgba(255, 152, 0, 0.2);
+}
+
+.gatekeeper-icon {
+  margin-bottom: 1.25rem;
+  animation: shieldPulse 2s ease-in-out infinite;
+}
+
+@keyframes shieldPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+}
+
+.gatekeeper-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ff9800, #f44336);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.gatekeeper-message {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gatekeeper-confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 152, 0, 0.08);
+  border: 1px solid rgba(255, 152, 0, 0.15);
+  border-radius: var(--radius-full, 9999px);
+  margin-bottom: 1.5rem;
+}
+
+.gatekeeper-conf-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.gatekeeper-conf-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ff9800;
+  font-variant-numeric: tabular-nums;
+}
+
+.gatekeeper-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  text-align: left;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 152, 0, 0.05);
+  border: 1px solid rgba(255, 152, 0, 0.1);
+  border-radius: var(--radius-md, 12px);
+  margin-bottom: 1.75rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.gatekeeper-reset-btn {
+  border-color: rgba(255, 152, 0, 0.3);
+  color: rgba(255, 183, 77, 0.9);
+}
+.gatekeeper-reset-btn:hover {
+  background-color: rgba(255, 152, 0, 0.15);
+  color: #ffb74d;
+  border-color: rgba(255, 152, 0, 0.5);
+}
+
+/* ===== GRAD-CAM SECTION ===== */
+.gradcam-section {
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gradcam-header {
+  margin-bottom: 1rem;
+}
+
+.gradcam-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.gradcam-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.gradcam-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.2), rgba(78, 205, 196, 0.2));
+  border: 1px solid rgba(108, 99, 255, 0.25);
+  border-radius: 4px;
+  color: #a29bfe;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.gradcam-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.gradcam-legend {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Image container with overlay */
+.gradcam-viewer {
+  text-align: center;
+}
+
+.gradcam-image-container {
+  position: relative;
+  width: 224px;
+  height: 224px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.gradcam-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gradcam-original {
+  z-index: 1;
+}
+
+.gradcam-overlay {
+  z-index: 2;
+  transition: opacity 0.15s ease;
+}
+
+/* Labels */
+.gradcam-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 224px;
+  margin: 0.5rem auto 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+/* Slider */
+.gradcam-slider-container {
+  margin-top: 0.75rem;
+  width: 224px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gradcam-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--accent-color, #6c63ff) 0%,
+    var(--accent-color, #6c63ff) var(--slider-progress, 60%),
+    rgba(255, 255, 255, 0.08) var(--slider-progress, 60%),
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  outline: none;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.gradcam-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3), 0 0 12px var(--accent-color, rgba(108, 99, 255, 0.3));
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gradcam-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 0 18px var(--accent-color, rgba(108, 99, 255, 0.5));
+}
+
+.gradcam-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border: none;
+}
+
+.gradcam-slider-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.gradcam-slider-label strong {
+  color: var(--text-primary);
+}
+
+/* Interpretation Card */
+.gradcam-interpretation {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.gradcam-interp-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+}
+
+.gradcam-interp-row:first-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0;
+}
+
+.gradcam-interp-row:last-child {
+  padding-bottom: 0;
+}
+
+.gradcam-dot {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+.gradcam-dot-high {
+  background: linear-gradient(135deg, #ff4444, #ffaa00);
+  box-shadow: 0 0 8px rgba(255, 68, 68, 0.4);
+}
+
+.gradcam-dot-low {
+  background: linear-gradient(135deg, #1a3a5c, #2277bb);
+  box-shadow: 0 0 8px rgba(34, 119, 187, 0.3);
+}
+
+.gradcam-interp-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.gradcam-interp-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .result-card {
+    max-width: 100%;
+    padding: 1.75rem;
+  }
+  .prediction-class {
+    font-size: 1.4rem;
+    padding: 0.6rem 2rem;
+  }
+  .gatekeeper-message {
+    max-width: 100%;
+  }
+  .gradcam-image-container,
+  .gradcam-labels,
+  .gradcam-slider-container {
+    width: 180px;
+  }
+  .gradcam-image-container {
+    height: 180px;
+  }
+}

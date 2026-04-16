@@ -1,0 +1,293 @@
+:root {
+  --glow-color: rgba(0, 170, 255, 0.7);
+  --glow-soft: rgba(0, 170, 255, 0.15);
+}
+
+/* THEMES BASED ON DIAGNOSIS */
+body.theme-pneumonia {
+  --glow-color: rgba(228, 77, 46, 0.7);
+  --glow-soft: rgba(228, 77, 46, 0.15);
+}
+body.theme-tuberculosis {
+  --glow-color: rgba(241, 196, 15, 0.7);
+  --glow-soft: rgba(241, 196, 15, 0.15);
+}
+body.theme-normal {
+  --glow-color: rgba(46, 204, 113, 0.7);
+  --glow-soft: rgba(46, 204, 113, 0.15);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: rgba(6, 8, 24, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(42, 47, 108, 0.25);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-logo {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #00d4ff, #0095ff);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 149, 255, 0.3);
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff, #b0c0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.history-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(42, 47, 108, 0.5);
+  background: rgba(15, 18, 45, 0.5);
+  color: rgba(205, 213, 240, 0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.history-toggle-btn:hover {
+  border-color: rgba(0, 149, 255, 0.5);
+  color: #ffffff;
+  background: rgba(0, 149, 255, 0.1);
+}
+
+.history-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  padding-top: 6rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* ===== HERO HEADER ===== */
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Pill Badge */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  background: rgba(0, 149, 255, 0.08);
+  border: 1px solid rgba(0, 149, 255, 0.2);
+  color: #5eb8ff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 1.5rem;
+  animation: pillGlow 3s ease-in-out infinite;
+}
+
+.hero-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes pillGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 149, 255, 0); }
+  50% { box-shadow: 0 0 20px rgba(0, 149, 255, 0.1); }
+}
+
+/* Title */
+.app-header h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title-line {
+  display: block;
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #a78bfa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+.hero-title-sub {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, rgba(205, 213, 240, 0.9), rgba(205, 213, 240, 0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(205, 213, 240, 0.5);
+  font-weight: 400;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+/* Tech Badges */
+.hero-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(205, 213, 240, 0.55);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: all 0.3s ease;
+}
+
+.hero-badge:hover {
+  background: rgba(0, 149, 255, 0.08);
+  border-color: rgba(0, 149, 255, 0.2);
+  color: rgba(205, 213, 240, 0.85);
+  transform: translateY(-1px);
+}
+
+.hero-badge svg {
+  opacity: 0.6;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 620px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1.25rem;
+  }
+  .navbar-title {
+    font-size: 1.05rem;
+  }
+  .app-container {
+    padding: 1rem;
+    padding-top: 5rem;
+  }
+  .app-header h1 {
+    font-size: 2.8rem;
+  }
+  .hero-title-sub {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .hero-badges {
+    gap: 0.4rem;
+  }
+  .hero-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.65rem;
+  }
+  main {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+  .hero-title-sub {
+    font-size: 1.4rem;
+  }
+  .hero-pill {
+    font-size: 0.7rem;
+  }
+  .history-toggle-btn span {
+    display: none;
+  }
+}

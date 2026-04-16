@@ -1,0 +1,117 @@
+/* ===== FEATURES SECTION ===== */
+.features-section {
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.features-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(176,192,255,0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== GRID ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ===== CARD ===== */
+.feature-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 149, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-soft);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* ===== ICON ===== */
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 1.25rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(42, 47, 108, 0.3);
+  border-radius: 14px;
+  border: 1px solid rgba(42, 47, 108, 0.4);
+}
+
+.feature-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ===== TEXT ===== */
+.feature-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  color: var(--text-primary);
+}
+
+.feature-card-description {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* ===== STEP NUMBER ===== */
+.feature-card-number {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(0, 149, 255, 0.15);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-title {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
